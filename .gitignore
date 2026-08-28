@@ -1,0 +1,21 @@
+# Environment & Secrets (CRITICAL)
+.env
+*.env
+
+# Python build & cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# IDE / VS Code configuration
+.vscode/
+.idea/
+
+# Telemetry outputs (Optional: include if you want teammates to generate their own logs)
+# telemetry_events.jsonl
