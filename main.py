@@ -1,5 +1,6 @@
 import json
 import os
+import uuid
 from typing import List
 from schemas.events import TaskSpec, RawEvent
 from agents.workflow import MultiAgentWorkflow
@@ -24,9 +25,12 @@ def main():
     # Initialize Person 1 Multi-Agent Workflow
     workflow = MultiAgentWorkflow(model_name="openai/gpt-oss-20b", temperature=0.0)
 
-    # Define a sample security auditing task
+    # Define a sample security auditing task.
+    # task_id gets a unique suffix per run so telemetry_events.jsonl can
+    # safely accumulate multiple runs without P2's ExecutionGraph mistaking
+    # "two separate runs" for "one task looping back to step 1" (abnormal_sequence).
     sample_task = TaskSpec(
-        task_id="task_sec_101",
+        task_id=f"task_sec_{uuid.uuid4().hex[:8]}",
         description="Audit access control policies for unauthorized privilege escalation risks",
         initial_input={
             "target_system": "Authentication Gateway",
