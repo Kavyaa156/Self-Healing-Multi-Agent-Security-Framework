@@ -38,8 +38,8 @@ per the plan's explicit instruction not to introduce an ML model here.
 
 from __future__ import annotations
 
-from schemas_mock.events import ExecutionEvent, FailureDiagnosis, ReliabilityScore
-from mocks.execution_graph import ExecutionGraph
+from schemas.events import ExecutionEvent, FailureDiagnosis, ReliabilityScore
+from monitoring.execution_graph import ExecutionGraph
 
 VALID_LABELS = ("F1", "F2", "F3", "F4")
 
