@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "n_tasks": 10,
+    "fda": 0.75,
+    "false_positive_rate": 0.0,
+    "per_type_accuracy": {
+      "F1": 1.0,
+      "F2": 1.0,
+      "F3": 0.0,
+      "F4": 1.0
+    },
+    "diagnosis_accuracy": 1.0,
+    "execution_overhead_seconds": 489.55237470000066,
+    "wilcoxon_statistic": null,
+    "wilcoxon_p_value": null,
+    "wilcoxon_note": "Wilcoxon not run: hybrid and R-only baseline produced identical correctness on every task in this sample. Include a repeated-failure or abnormal-sequence scenario, or run more tasks, to get a non-degenerate comparison."
+  },
+  "rows": [
+    {
+      "task_id": "eval_t1",
+      "ground_truth_fault": "F1",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F1",
+      "C": 0.5152876315606207,
+      "S": 0.13006718953450522,
+      "E": 1.0,
+      "R": 0.6420776831724757
+    },
+    {
+      "task_id": "eval_t2",
+      "ground_truth_fault": "F1",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F1",
+      "C": 0.5524566181404367,
+      "S": 0.13006718953450522,
+      "E": 1.0,
+      "R": 0.6495114804884389
+    },
+    {
+      "task_id": "eval_t3",
+      "ground_truth_fault": "F2",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F2",
+      "C": 0.5446320504437063,
+      "S": 0.5601433217525482,
+      "E": 0.0,
+      "R": 0.27696940661450575
+    },
+    {
+      "task_id": "eval_t4",
+      "ground_truth_fault": "F2",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F2",
+      "C": 0.5268199170167305,
+      "S": 0.5794738133748373,
+      "E": 0.0,
+      "R": 0.2792061274157973
+    },
+    {
+      "task_id": "eval_t5",
+      "ground_truth_fault": "F3",
+      "expected_detected": true,
+      "detected": false,
+      "r_only_detected": false,
+      "predicted_type": null,
+      "C": 0.12347967601627319,
+      "S": 0.6159597138563792,
+      "E": 1.0,
+      "R": 0.7094838493601684
+    },
+    {
+      "task_id": "eval_t6",
+      "ground_truth_fault": "F3",
+      "expected_detected": true,
+      "detected": false,
+      "r_only_detected": false,
+      "predicted_type": null,
+      "C": 0.10608052376533672,
+      "S": 0.4852174023787181,
+      "E": 1.0,
+      "R": 0.6667813254666828
+    },
+    {
+      "task_id": "eval_t7",
+      "ground_truth_fault": "F4",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F4",
+      "C": 0.49024292727941476,
+      "S": 0.4843173027038574,
+      "E": 0.0,
+      "R": 0.24334377626704018
+    },
+    {
+      "task_id": "eval_t8",
+      "ground_truth_fault": "F4",
+      "expected_detected": true,
+      "detected": true,
+      "r_only_detected": true,
+      "predicted_type": "F4",
+      "C": 0.5089509943379913,
+      "S": 0.484038511912028,
+      "E": 0.0,
+      "R": 0.24700175244120667
+    },
+    {
+      "task_id": "eval_t9",
+      "ground_truth_fault": null,
+      "expected_detected": false,
+      "detected": false,
+      "r_only_detected": false,
+      "predicted_type": null,
+      "C": 0.5230067089775514,
+      "S": 0.4708605607350667,
+      "E": 1.0,
+      "R": 0.7458595100160303
+    },
+    {
+      "task_id": "eval_t10",
+      "ground_truth_fault": null,
+      "expected_detected": false,
+      "detected": false,
+      "r_only_detected": false,
+      "predicted_type": null,
+      "C": 0.49102412327313605,
+      "S": 0.5740992923577627,
+      "E": 1.0,
+      "R": 0.770434612361956
+    }
+  ]
+}

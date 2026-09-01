@@ -1,0 +1,30 @@
+agents:
+  planner:
+    role: "Planner Agent"
+    description: "Breaks down complex tasks into executable sub-steps"
+    allowed_tools: []
+  
+  tool_agent:
+    role: "Tool Execution Agent"
+    description: "Executes specific search or lookup tools based on sub-steps"
+    allowed_tools: ["doc_search", "policy_checker"]
+  
+  executor:
+    role: "Executor & Synthesizer"
+    description: "Aggregates tool outputs and synthesizes the final response"
+    allowed_tools: []
+
+tools:
+  doc_search:
+    description: "Searches documents and external data sources for information"
+    input_schema:
+      query: "string"
+    output_schema:
+      result: "string"
+
+  policy_checker:
+    description: "Validates access control policy compliance for system roles"
+    input_schema:
+      policy_id: "string"
+    output_schema:
+      status: "string"

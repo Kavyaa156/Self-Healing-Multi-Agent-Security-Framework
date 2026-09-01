@@ -1,0 +1,13 @@
+Limitation: Static C/S/E weights + fixed threshold don't transfer cleanly across weight profiles
+
+Two evaluation runs against the same 10-task set (4 fault types + clean), differing only in weights:
+
+Weight profile	FDA	False Positive Rate	F3 accuracy
+(0.2, 0.3, 0.5) — E-heavy	0.75	0.0	0.0
+(0.4, 0.4, 0.2) — C-heavy	1.0	1.0	1.0
+
+Root cause: the consistency score (C) never approaches 1.0 even on clean runs — it sits around 0.5 due to natural sampling variance across K resampled LLM trajectories. Under E-heavy weights, that baseline noise gets diluted and clean tasks pass, but C's collapse on real F3 (reasoning-inconsistency) faults (C≈0.13) gets diluted too and goes undetected. Under C-heavy weights, F3 is caught, but the same baseline noise in C now drags clean-task R below theta, producing false alarms.
+
+No single static (weights, theta) pair — including Jeong's own reported values — separates clean from faulty runs on both axes in our setup. Jeong's paper itself notes theta=0.65 needs domain recalibration; our result shows the weights need the same treatment, and that the two can't be tuned independently of each other.
+
+This is a legitimate, data-backed limitation, not a bug — you have both JSON reports as evidence.
