@@ -262,10 +262,10 @@ if __name__ == "__main__":
     tasks, fault_labels = build_sample_task_set(n_per_type=2)
     report = run_evaluation(
         tasks, fault_labels, workflow=workflow,
-        weights=(0.4, 0.4, 0.2),  # api_orchestration weights -- see run_evaluation docstring
+        weights=None,  # [Phase 5, Novelty #2] adaptive mode -- see reliability/adaptive_weights.py
         validation_store=store,
         k=2,
     )
     print(json.dumps(report.to_dict(), indent=2))
-    report.save("evaluation_report_with_attribution.json")
-    print("\nSaved full report (with per-task rows) to evaluation_report_with_attribution.json")
+    report.save("evaluation_report_adaptive.json")
+    print("\nSaved full report (with per-task rows) to evaluation_report_adaptive.json")

@@ -203,7 +203,7 @@ def run_task_with_fault(
     task: TaskSpec,
     fault_type: Optional[str] = None,
     k: int = 3,
-    weights: tuple[float, float, float] = (0.4, 0.4, 0.2),
+    weights: Optional[tuple[float, float, float]] = (0.4, 0.4, 0.2),
     theta: float = 0.65,
     validation_store: Optional[ValidationStore] = None,
     seed: Optional[int] = None,
@@ -220,7 +220,11 @@ def run_task_with_fault(
             visible on task.initial_input for logging/debugging).
         fault_type: None for a clean run, or one of "F1".."F4".
         k: number of resampled trajectories for C (Jeong recommends 3-5).
-        weights: (w1, w2, w3) for R = w1*C + w2*S + w3*E.
+        weights: (w1, w2, w3) for R = w1*C + w2*S + w3*E. [Phase 5,
+            Novelty #2] Pass weights=None for ADAPTIVE mode -- this is
+            passed straight through to compute_reliability(), which
+            calls reliability.adaptive_weights.select_weights() on this
+            task's own C/S/E instead of using one fixed tuple.
         theta: detection threshold passed to detect_failure().
         validation_store: P3's seeded ValidationStore for S. If None, S is
             skipped (set to 1.0) with a warning -- pass a real store
